@@ -19,7 +19,7 @@ export const BalanceCards = ({
   currentMonthOutflows,
   previousMonthBalance 
 }: BalanceCardsProps) => {
-  const currentMonthBalance = currentMonthInflows - currentMonthOutflows;
+  const currentMonthBalance = (previousMonthBalance || 0) + currentMonthInflows - currentMonthOutflows;
   const balanceChange = previousMonthBalance !== undefined 
     ? ((balance - previousMonthBalance) / Math.abs(previousMonthBalance || 1)) * 100 
     : 0;
